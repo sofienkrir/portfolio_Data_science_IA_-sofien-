@@ -678,10 +678,8 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
   .hero-stats { flex-wrap: wrap; gap: 24px 32px; }
 }
 /* Projet vedette (classes au lieu des styles inline, pour un vrai rendu mobile) */
-.feat-card { grid-column: 1 / -1; border-color: rgba(0,229,255,0.3); }
 .feat-bar { position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--cyan),var(--green)); }
 .feat-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(0,229,255,0.1); border:1px solid rgba(0,229,255,0.25); padding:4px 12px; font-size:10px; color:var(--cyan); letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
-.feat-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
 .feat-org { font-size:12px; color:var(--cyan); margin-bottom:12px; }
 .feat-metrics { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 .feat-metric { background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.06); padding:14px; text-align:center; }
@@ -689,7 +687,6 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
 .feat-lbl { font-size:10px; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
 .edu-card { padding-bottom: 24px; }
 @media (max-width: 768px) {
-  .feat-grid { grid-template-columns: 1fr; gap: 24px; }
   .hero-visual { display:block; position:relative; right:auto; top:auto; transform:none; width:260px; height:260px; margin:0 auto 32px; }
   .hero { flex-direction: column-reverse; justify-content:center; }
   .hero-photo { width:160px; height:160px; }
@@ -710,25 +707,69 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
 .proj-desc { font-size: 12.5px; color: #8a9ab5; }
 .skill-chip { font-size: 11px; color: #8d9cad; }
 .edu-desc { font-size: 12px; color: #8a9ab5; }
-/* Autres projets : liste compacte */
-.proj-others { margin-top: 32px; border: 1px solid var(--border); background: var(--bg2); }
-.proj-others-title { font-size: 11px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; padding: 16px 24px; border-bottom: 1px solid var(--border); }
-.proj-other { display: grid; grid-template-columns: 260px 1fr auto; gap: 20px; align-items: center; padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.2s; }
-.proj-other:last-child { border-bottom: none; }
-.proj-other:hover { background: rgba(0,229,255,0.03); }
-.proj-other-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); }
-.proj-other-desc { font-size: 12px; color: #8a9ab5; line-height: 1.6; }
-.proj-other-tech { font-size: 11px; color: var(--cyan); white-space: nowrap; }
 @media (max-width: 768px) { .feat-num { font-size: 18px; } .feat-metric { padding: 12px 8px; } }
-@media (max-width: 900px) {
-  .proj-other { grid-template-columns: 1fr; gap: 6px; }
-  .proj-other-tech { white-space: normal; }
-}
 @media (max-width: 1024px) and (min-width: 769px) {
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-visual { width: 300px; height: 300px; right: 32px; }
   .hero-photo { width: 170px; height: 170px; }
   .hero-content { max-width: 56%; }
+}
+
+/* ===== Projet open source : agent de recherche LangGraph ===== */
+.oss-card { grid-column: 1 / -1; border-color: rgba(0,255,136,0.25); }
+.oss-card::before { background: var(--green); }
+.oss-card:hover { border-color: rgba(0,255,136,0.45); }
+.oss-bar { position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--green),var(--cyan)); }
+.oss-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.25); padding:4px 12px; font-size:10px; color:var(--green); letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+.oss-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+.oss-repo { display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:1px; color:var(--green); text-decoration:none; border-bottom:1px solid rgba(0,255,136,0.3); padding-bottom:3px; margin-bottom:16px; transition:color .2s, border-color .2s; }
+.oss-repo:hover { color:var(--cyan); border-color:rgba(0,229,255,0.5); }
+.oss-angle { border-left:2px solid rgba(0,255,136,0.35); padding-left:14px; margin:18px 0; font-size:12.5px; line-height:1.8; color:#8a9ab5; }
+.oss-angle strong { color:var(--text); font-weight:500; }
+.oss-shots { display:grid; gap:14px; }
+.oss-shot { background:#000; border:1px solid rgba(255,255,255,0.07); overflow:hidden; }
+.oss-shot img { display:block; width:100%; height:auto; }
+.oss-cap { font-size:10px; color:var(--muted); letter-spacing:1px; text-transform:uppercase; padding:9px 11px; border-top:1px solid rgba(255,255,255,0.05); }
+.oss-metrics { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:28px; }
+.oss-metric { background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.06); padding:14px; text-align:center; }
+.oss-note { margin-top:16px; font-size:11px; line-height:1.8; color:var(--muted); }
+.oss-note strong { color:#8a9ab5; font-weight:500; }
+@media (max-width: 900px) {
+  .oss-grid { grid-template-columns:1fr; gap:24px; }
+  .oss-metrics { grid-template-columns:repeat(2,1fr); }
+}
+
+/* ===== Section dediee : projet de fin d'etudes ===== */
+.pfe-hero { position:relative; background:var(--bg2); border:1px solid rgba(0,229,255,0.3); padding:32px; overflow:hidden; }
+.pfe-lead { font-size:14px; line-height:1.85; color:#8a9ab5; max-width:760px; margin-top:4px; }
+.pfe-lead strong { color:var(--text); font-weight:500; }
+.pfe-lead .derja { color:var(--cyan); font-weight:600; }
+.pfe-split { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px; }
+.pfe-panel { background:var(--bg2); border:1px solid var(--border); padding:28px; position:relative; }
+.pfe-panel.problem { border-left:3px solid var(--orange); }
+.pfe-panel.solution { border-left:3px solid var(--green); }
+.pfe-panel-title { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:18px; }
+.pfe-panel.problem .pfe-panel-title { color:var(--orange); }
+.pfe-panel.solution .pfe-panel-title { color:var(--green); }
+.pfe-list { list-style:none; display:grid; gap:14px; }
+.pfe-list li { position:relative; padding-left:20px; font-size:12.5px; line-height:1.75; color:#8a9ab5; }
+.pfe-list li::before { content:'\203a'; position:absolute; left:0; top:-1px; }
+.pfe-panel.problem .pfe-list li::before { color:var(--orange); }
+.pfe-panel.solution .pfe-list li::before { color:var(--green); }
+.pfe-list strong { color:var(--text); font-weight:500; }
+.pfe-quote { margin-top:24px; border-left:2px solid rgba(0,229,255,0.35); padding:4px 0 4px 18px; font-size:13px; line-height:1.8; color:#8a9ab5; }
+.pfe-quote strong { color:var(--text); font-weight:500; }
+.pfe-stack { margin-top:24px; border:1px solid var(--border); background:var(--bg2); }
+.pfe-stack-row { display:grid; grid-template-columns:160px 1fr; gap:20px; align-items:center; padding:16px 24px; border-bottom:1px solid rgba(255,255,255,0.04); }
+.pfe-stack-row:last-child { border-bottom:none; }
+.pfe-stack-label { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--cyan); }
+.pfe-stack-items { display:flex; flex-wrap:wrap; gap:6px; }
+.pfe-metrics { grid-template-columns:repeat(4,1fr); margin-top:26px; }
+@media (max-width: 900px) {
+  .pfe-metrics { grid-template-columns:repeat(2,1fr); }
+  .pfe-split { grid-template-columns:1fr; gap:16px; }
+  .pfe-stack-row { grid-template-columns:1fr; gap:8px; }
+  .pfe-hero, .pfe-panel { padding:24px; }
 }
 </style>
 </head>
@@ -744,6 +785,7 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
     <a href="#about">À propos</a>
     <a href="#experience">Expérience</a>
     <a href="#skills">Compétences</a>
+    <a href="#pfe">PFE</a>
     <a href="#projects">Projets</a>
     <a href="#certifications">Formation</a>
     <a href="#contact">Contact</a>
@@ -1017,37 +1059,136 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
 
 <div class="section-divider"></div>
 
+<!-- PROJET DE FIN D'ETUDES -->
+<section id="pfe">
+  <div class="section-header reveal">
+    <span class="section-num">04 —</span>
+    <h2 class="section-title">Projet de fin d'études</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="pfe-hero reveal">
+    <div class="feat-bar"></div>
+    <div class="feat-badge">⭐ Projet de fin d'études</div>
+    <div class="proj-title" style="font-size:22px;">Conseiller Clientèle Augmenté par l'IA</div>
+    <div class="feat-org">Attijari Bank · Digital Center · 2026</div>
+    <p class="pfe-lead">
+      Dans une banque tunisienne, une partie des clients s'exprime en <span class="derja">derja</span> — le dialecte tunisien — et non en français littéraire. Aucun assistant du marché ne couvre cette langue : <strong>peu dotée, mal représentée dans les modèles existants</strong>, et mélangée au français dans l'usage réel. D'où la constitution d'un jeu de <strong>8 000 paires annotées</strong> français / derja. Côté interne, les conseillers perdent du temps à retrouver l'information dans la documentation.
+    </p>
+    <div class="feat-metrics pfe-metrics">
+      <div class="feat-metric"><div class="feat-num" style="color:var(--green);">8 000</div><div class="feat-lbl">Paires annotées</div></div>
+      <div class="feat-metric"><div class="feat-num" style="color:#ffd700;">FR · Derja</div><div class="feat-lbl">Multilingue</div></div>
+      <div class="feat-metric"><div class="feat-num" style="color:var(--cyan);">2</div><div class="feat-lbl">Interfaces · client &amp; conseiller</div></div>
+      <div class="feat-metric"><div class="feat-num" style="color:var(--green);">2FA · RBA</div><div class="feat-lbl">Sécurité</div></div>
+    </div>
+  </div>
+
+  <div class="pfe-split">
+    <div class="pfe-panel problem reveal">
+      <div class="pfe-panel-title">Le problème</div>
+      <ul class="pfe-list">
+        <li>Les clients écrivent en <strong>derja</strong>, pas en français littéraire — et mélangent les deux dans une même phrase.</li>
+        <li>Le derja est une <strong>langue peu dotée</strong> : aucune solution prête à l'emploi pour ce dialecte.</li>
+        <li>Les conseillers <strong>perdent du temps</strong> à retrouver l'information dans la documentation interne.</li>
+      </ul>
+    </div>
+    <div class="pfe-panel solution reveal">
+      <div class="pfe-panel-title">La solution</div>
+      <ul class="pfe-list">
+        <li><strong>Chatbot client</strong> multilingue français / derja, adossé à une architecture RAG.</li>
+        <li><strong>Assistant conseiller</strong> interrogeant la base documentaire interne.</li>
+        <li><strong>2FA et authentification basée sur le risque</strong> : l'accès s'adapte au niveau de risque de la connexion, au lieu d'un mot de passe unique pour tous les contextes.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pfe-quote reveal">
+    Ce n'est pas « un chatbot avec RAG ». La difficulté tient à <strong>une langue sans solution sur étagère</strong>, qu'il a fallu doter d'un jeu annoté, et à <strong>un contexte bancaire réel</strong> : deux rôles utilisateurs aux besoins opposés, et des contraintes de sécurité non négociables.
+  </div>
+
+  <!-- TODO(sofien) : ajouter ici le bloc « Ma contribution » — ce que tu as construit
+       personnellement par rapport au reste de l'equipe (jeu de donnees, pipeline RAG,
+       logique RBA...). C'est la partie que les recruteurs lisent en premier.
+       TODO(sofien) : ajouter un bloc « Resultats » uniquement si des mesures reelles
+       existent, et un schema d'architecture si l'entreprise le valide. -->
+
+  <div class="pfe-stack reveal">
+    <div class="pfe-stack-row">
+      <div class="pfe-stack-label">IA · RAG</div>
+      <div class="pfe-stack-items">
+        <span class="proj-tag">LangChain</span><span class="proj-tag">ChromaDB</span>
+        <span class="proj-tag">MiniLM-L12-v2</span><span class="proj-tag">Llama 3.3 · Groq</span>
+      </div>
+    </div>
+    <div class="pfe-stack-row">
+      <div class="pfe-stack-label">Données</div>
+      <div class="pfe-stack-items"><span class="proj-tag">8 000 paires annotées FR / derja</span></div>
+    </div>
+    <div class="pfe-stack-row">
+      <div class="pfe-stack-label">Backend</div>
+      <div class="pfe-stack-items"><span class="proj-tag">FastAPI</span><span class="proj-tag">MongoDB</span></div>
+    </div>
+    <div class="pfe-stack-row">
+      <div class="pfe-stack-label">Frontend</div>
+      <div class="pfe-stack-items"><span class="proj-tag">React</span><span class="proj-tag">2 interfaces · client &amp; conseiller</span></div>
+    </div>
+    <div class="pfe-stack-row">
+      <div class="pfe-stack-label">Sécurité</div>
+      <div class="pfe-stack-items"><span class="proj-tag">2FA</span><span class="proj-tag">Authentification basée sur le risque</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- PROJETS -->
 <section id="projects">
   <div class="section-header reveal">
-    <span class="section-num">04 —</span>
+    <span class="section-num">05 —</span>
     <h2 class="section-title">Projets</h2>
     <div class="section-line"></div>
   </div>
   <div class="projects-grid">
 
-    <!-- PROJET VEDETTE : PFE -->
-    <div class="project-card feat-card reveal">
-      <div class="feat-bar"></div>
-      <div class="feat-badge">⭐ Projet de fin d'études</div>
-      <div class="feat-grid">
+    <!-- PROJET OPEN SOURCE : agent de recherche LangGraph -->
+    <div class="project-card oss-card reveal">
+      <div class="oss-bar"></div>
+      <div class="oss-badge">⬡ Open source · GitHub</div>
+      <div class="oss-grid">
         <div>
-          <div class="proj-title" style="font-size:20px;">Conseiller Clientèle Augmenté par l'IA</div>
-          <div class="feat-org">Attijari Bank · Digital Center · 2026</div>
-          <div class="proj-desc">Plateforme bancaire IA : chatbot multilingue français / Derja pour les clients, assistant pour les conseillers et architecture RAG complète, sécurisée par 2FA et authentification basée sur le risque.</div>
-          <div class="proj-tags" style="margin-top:14px;">
-            <span class="proj-tag">RAG</span><span class="proj-tag">LangChain</span>
-            <span class="proj-tag">MiniLM-L12-v2</span><span class="proj-tag">ChromaDB</span>
-            <span class="proj-tag">Llama 3.3 · Groq</span><span class="proj-tag">FastAPI</span>
-            <span class="proj-tag">MongoDB</span><span class="proj-tag">React</span>
+          <div class="proj-title" style="font-size:20px;">LangGraph AI Research Agent</div>
+          <a class="oss-repo" href="https://github.com/sofienkrir/langgraph-ai-agent" target="_blank" rel="noopener">github.com/sofienkrir/langgraph-ai-agent ↗</a>
+          <div class="proj-desc" style="margin-bottom:0;">Agent de recherche qui décompose une question, interroge un corpus PDF local et le Web, puis rend un rapport sourcé. Les sous-questions restées sans réponse sont déclarées, jamais comblées.</div>
+          <div class="oss-angle">
+            La plupart des agents de recherche répondent à tout, parce que rien en eux ne distingue <em>trouver des sources</em> de <em>trouver une réponse</em>. Ici, le point de contrôle du graphe est <strong>mesuré, pas généré</strong> : un nœud en Python pur vérifie deux conditions par sous-question — assez de sources au-dessus d'un seuil de pertinence, et présence effective dans ces sources des termes que la question nomme — puis décide de relancer une recherche ciblée ou de passer à la rédaction. Aucun modèle n'est invité à noter sa propre confiance : une confiance auto-déclarée par un LLM est mal calibrée et n'est pas une mesure. Les deux seuils ont été choisis par balayage mesuré, pas à l'intuition.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">LangGraph</span><span class="proj-tag">Python</span>
+            <span class="proj-tag">Streamlit</span><span class="proj-tag">Groq · qwen3.8-27b</span>
+            <span class="proj-tag">gpt-oss-120b</span><span class="proj-tag">Tavily</span>
+            <span class="proj-tag">Chroma + fastembed</span><span class="proj-tag">pytest</span>
           </div>
         </div>
-        <div class="feat-metrics">
-          <div class="feat-metric"><div class="feat-num" style="color:var(--green);">8 000</div><div class="feat-lbl">Paires annotées</div></div>
-          <div class="feat-metric"><div class="feat-num" style="color:#ffd700;">FR · Derja</div><div class="feat-lbl">Multilingue</div></div>
-          <div class="feat-metric"><div class="feat-num" style="color:var(--cyan);">2</div><div class="feat-lbl">Interfaces · client &amp; conseiller</div></div>
-          <div class="feat-metric"><div class="feat-num" style="color:var(--green);">2FA · RBA</div><div class="feat-lbl">Sécurité</div></div>
+        <div class="oss-shots">
+          <figure class="oss-shot">
+            <img src="https://raw.githubusercontent.com/sofienkrir/langgraph-ai-agent/main/assets/screenshots/honest-gaps.png" alt="Section Limites d'un rapport, nommant les sous-questions restées sans réponse" loading="lazy" decoding="async">
+            <figcaption class="oss-cap">Section « Limites » construite en Python : le modèle ne peut ni l'oublier ni l'adoucir</figcaption>
+          </figure>
+          <figure class="oss-shot">
+            <img src="https://raw.githubusercontent.com/sofienkrir/langgraph-ai-agent/main/assets/screenshots/report.png" alt="Rapport de recherche généré, chaque affirmation accompagnée de sa citation" loading="lazy" decoding="async">
+            <figcaption class="oss-cap">Rapport sourcé — corpus PDF local et Web</figcaption>
+          </figure>
         </div>
+      </div>
+      <div class="oss-metrics">
+        <div class="oss-metric"><div class="feat-num" style="color:var(--green);">0,69</div><div class="feat-lbl">Recall@4 · corpus local</div></div>
+        <div class="oss-metric"><div class="feat-num" style="color:var(--cyan);">0,88</div><div class="feat-lbl">Taux de couverture</div></div>
+        <div class="oss-metric"><div class="feat-num" style="color:var(--green);">1,00</div><div class="feat-lbl">Validité des citations</div></div>
+        <div class="oss-metric"><div class="feat-num" style="color:#ffd700;">40 s</div><div class="feat-lbl">Latence moyenne</div></div>
+        <div class="oss-metric"><div class="feat-num" style="color:var(--cyan);">61</div><div class="feat-lbl">Tests unitaires · suite verte</div></div>
+      </div>
+      <div class="oss-note">
+        Chiffres produits par un <strong>harnais d'évaluation versionné dans le dépôt</strong>, pas estimés : validité des citations de 1,00 signifie aucune citation inventée sur l'ensemble des rapports évalués, taux de réussite du Recall@4 de 0,88. La <strong>fidélité</strong> — chaque affirmation est-elle réellement soutenue par la source qu'elle cite — n'est pas mesurée, et le README le dit explicitement.
       </div>
     </div>
 
@@ -1063,19 +1204,6 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
         <span class="proj-tag">Node.js</span>
         <span class="proj-tag">SQLite</span>
         <span class="proj-tag">Google Drive API</span>
-      </div>
-    </div>
-
-    <!-- TODO(sofien) : ajouter les technologies utilisées et le lien du site s'il est en ligne -->
-    <div class="project-card reveal">
-      <div class="proj-top">
-        <div class="proj-icon">🌐</div>
-        <div class="proj-year">Web</div>
-      </div>
-      <div class="proj-title">Site web — Parfumerie</div>
-      <div class="proj-desc">Conception et développement d'un site web adapté à l'activité d'une parfumerie.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">Site web</span>
       </div>
     </div>
 
@@ -1107,27 +1235,48 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
         <span class="proj-tag">DAX</span>
       </div>
     </div>
+
+    <div class="project-card reveal">
+      <div class="proj-top">
+        <div class="proj-icon">💳</div>
+        <div class="proj-year">ML · API</div>
+      </div>
+      <div class="proj-title">Scoring de risque bancaire</div>
+      <div class="proj-desc">Modèle de machine learning évaluant le risque d'un dossier, exposé via une API et consulté depuis une interface de reporting.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">Scikit-learn</span>
+        <span class="proj-tag">FastAPI</span>
+        <span class="proj-tag">React</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="proj-top">
+        <div class="proj-icon">💬</div>
+        <div class="proj-year">NLP</div>
+      </div>
+      <div class="proj-title">Analyse de sentiments</div>
+      <div class="proj-desc">Classification de textes issus de Twitter et Reddit par un modèle Transformer, pour mesurer la tonalité des publications.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">TensorFlow</span>
+        <span class="proj-tag">Transformers</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="proj-top">
+        <div class="proj-icon">🧾</div>
+        <div class="proj-year">OCR · Vision</div>
+      </div>
+      <div class="proj-title">Extraction de factures</div>
+      <div class="proj-desc">Lecture automatique de factures en image ou en PDF, et restitution des champs en JSON structuré, exploitable par un autre système.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">OpenCV</span>
+        <span class="proj-tag">Tesseract</span>
+      </div>
+    </div>
   </div>
 
-  <!-- Autres projets : format compact -->
-  <div class="proj-others reveal">
-    <div class="proj-others-title">Autres projets</div>
-    <div class="proj-other">
-      <div class="proj-other-name">💳 Scoring de risque bancaire</div>
-      <div class="proj-other-desc">Modèle ML servi par une API, avec interface de reporting.</div>
-      <div class="proj-other-tech">Scikit-learn · FastAPI · React</div>
-    </div>
-    <div class="proj-other">
-      <div class="proj-other-name">💬 Analyse de sentiments</div>
-      <div class="proj-other-desc">Classification de textes Twitter / Reddit avec un Transformer.</div>
-      <div class="proj-other-tech">TensorFlow · Transformers</div>
-    </div>
-    <div class="proj-other">
-      <div class="proj-other-name">🧾 Extraction de factures</div>
-      <div class="proj-other-desc">OCR d'images et de PDF vers un JSON structuré.</div>
-      <div class="proj-other-tech">OpenCV · Tesseract</div>
-    </div>
-  </div>
 </section>
 
 <div class="section-divider"></div>
@@ -1135,7 +1284,7 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
 <!-- FORMATION & CERTIFICATIONS -->
 <section id="certifications">
   <div class="section-header reveal">
-    <span class="section-num">05 —</span>
+    <span class="section-num">06 —</span>
     <h2 class="section-title">Formation &amp; Certifications</h2>
     <div class="section-line"></div>
   </div>
@@ -1178,7 +1327,7 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-header reveal">
-    <span class="section-num">06 —</span>
+    <span class="section-num">07 —</span>
     <h2 class="section-title">Contact</h2>
     <div class="section-line"></div>
   </div>
