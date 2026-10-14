@@ -1,2 +1,6 @@
 node_modules/
 dist/
+
+# Vite n'est plus utilise : le site est servi en statique (voir vercel.json)
+package.json
+package-lock.json
