@@ -771,6 +771,37 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
   .pfe-stack-row { grid-template-columns:1fr; gap:8px; }
   .pfe-hero, .pfe-panel { padding:24px; }
 }
+
+/* ===== PFE : bloc « Ma contribution » ===== */
+.contrib { margin-top:24px; border:1px solid rgba(0,255,136,0.22); background:var(--bg2); }
+.contrib-head { padding:18px 28px; border-bottom:1px solid rgba(0,255,136,0.18); display:flex; flex-wrap:wrap; align-items:baseline; gap:14px; }
+.contrib-head h3 { font-family:'Syne',sans-serif; font-size:16px; font-weight:700; color:var(--text); }
+.contrib-role { font-size:11px; color:var(--green); letter-spacing:1px; }
+.contrib-body { padding:28px; }
+.contrib-intro { font-size:12.5px; line-height:1.8; color:#8a9ab5; padding-bottom:22px; margin-bottom:22px; border-bottom:1px solid rgba(255,255,255,0.05); }
+.contrib-intro strong { color:var(--text); font-weight:500; }
+.contrib-item { padding-top:24px; margin-top:24px; border-top:1px solid rgba(255,255,255,0.05); }
+.contrib-item:first-of-type { padding-top:0; margin-top:0; border-top:none; }
+.contrib-h { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; color:var(--cyan); margin-bottom:12px; }
+.contrib-p { font-size:12.5px; line-height:1.8; color:#8a9ab5; margin-bottom:12px; }
+.contrib-p:last-child { margin-bottom:0; }
+.contrib-p strong { color:var(--text); font-weight:500; }
+.contrib-case { background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.06); padding:16px 18px; margin:14px 0; font-size:12px; line-height:1.8; color:#8a9ab5; }
+.contrib-case .q { font-family:'JetBrains Mono',monospace; color:#ffd700; }
+.ft-table { width:100%; border-collapse:collapse; margin-top:16px; font-size:12px; }
+.ft-table th { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:400; text-align:left; padding:0 12px 10px; border-bottom:1px solid rgba(255,255,255,0.08); }
+.ft-table th:not(:first-child), .ft-table td:not(:first-child) { text-align:right; }
+.ft-table td { padding:11px 12px; border-bottom:1px solid rgba(255,255,255,0.04); color:#8a9ab5; }
+.ft-table tr:last-child td { border-bottom:none; }
+.ft-table .before { color:var(--muted); font-family:'JetBrains Mono',monospace; }
+.ft-table .after { color:var(--green); font-family:'JetBrains Mono',monospace; font-weight:500; }
+.contrib-foot { margin-top:24px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.05); font-size:11px; line-height:1.8; color:var(--muted); }
+@media (max-width: 900px) {
+  .contrib-body { padding:22px; }
+  .contrib-head { padding:16px 22px; }
+  .ft-table { font-size:11px; }
+  .ft-table th, .ft-table td { padding-left:6px; padding-right:6px; }
+}
 </style>
 </head>
 <body>
@@ -901,7 +932,7 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
       <div class="exp-subject">« Conseiller Clientèle Augmenté par l'Intelligence Artificielle »</div>
       <ul class="exp-bullets">
         <li>Chatbot bancaire multilingue (français / Derja) et assistant IA pour les conseillers : rendez-vous, préparation des échanges clients.</li>
-        <li>Architecture RAG complète ; embeddings MiniLM fine-tunés sur 8 000 paires bancaires annotées.</li>
+        <li>Architecture RAG complète ; embeddings MiniLM fine-tunés sur un corpus parallèle de 847 requêtes bancaires derja / français.</li>
         <li>Sécurité renforcée : 2FA, vérification par e-mail et authentification basée sur le risque.</li>
       </ul>
       <div class="proj-tags">
@@ -1073,10 +1104,10 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
     <div class="proj-title" style="font-size:22px;">Conseiller Clientèle Augmenté par l'IA</div>
     <div class="feat-org">Attijari Bank · Digital Center · 2026</div>
     <p class="pfe-lead">
-      Dans une banque tunisienne, une partie des clients s'exprime en <span class="derja">derja</span> — le dialecte tunisien — et non en français littéraire. Aucun assistant du marché ne couvre cette langue : <strong>peu dotée, mal représentée dans les modèles existants</strong>, et mélangée au français dans l'usage réel. D'où la constitution d'un jeu de <strong>8 000 paires annotées</strong> français / derja. Côté interne, les conseillers perdent du temps à retrouver l'information dans la documentation.
+      Dans une banque tunisienne, une partie des clients s'exprime en <span class="derja">derja</span> — le dialecte tunisien — et non en français littéraire. Aucun assistant du marché ne couvre cette langue : <strong>peu dotée, mal représentée dans les modèles existants</strong>, et mélangée au français dans l'usage réel. D'où la constitution d'un <strong>corpus parallèle de 847 requêtes</strong> annotées à la main, en derja, en français et en mélange des deux. Côté interne, les conseillers perdent du temps à retrouver l'information dans la documentation.
     </p>
     <div class="feat-metrics pfe-metrics">
-      <div class="feat-metric"><div class="feat-num" style="color:var(--green);">8 000</div><div class="feat-lbl">Paires annotées</div></div>
+      <div class="feat-metric"><div class="feat-num" style="color:var(--green);">847</div><div class="feat-lbl">Requêtes annotées · 8 catégories</div></div>
       <div class="feat-metric"><div class="feat-num" style="color:#ffd700;">FR · Derja</div><div class="feat-lbl">Multilingue</div></div>
       <div class="feat-metric"><div class="feat-num" style="color:var(--cyan);">2</div><div class="feat-lbl">Interfaces · client &amp; conseiller</div></div>
       <div class="feat-metric"><div class="feat-num" style="color:var(--green);">2FA · RBA</div><div class="feat-lbl">Sécurité</div></div>
@@ -1106,11 +1137,86 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
     Ce n'est pas « un chatbot avec RAG ». La difficulté tient à <strong>une langue sans solution sur étagère</strong>, qu'il a fallu doter d'un jeu annoté, et à <strong>un contexte bancaire réel</strong> : deux rôles utilisateurs aux besoins opposés, et des contraintes de sécurité non négociables.
   </div>
 
-  <!-- TODO(sofien) : ajouter ici le bloc « Ma contribution » — ce que tu as construit
-       personnellement par rapport au reste de l'equipe (jeu de donnees, pipeline RAG,
-       logique RBA...). C'est la partie que les recruteurs lisent en premier.
-       TODO(sofien) : ajouter un bloc « Resultats » uniquement si des mesures reelles
-       existent, et un schema d'architecture si l'entreprise le valide. -->
+  <div class="contrib reveal">
+    <div class="contrib-head">
+      <h3>Ma contribution</h3>
+      <span class="contrib-role">Volet Data Science &amp; IA — projet réalisé en binôme</span>
+    </div>
+    <div class="contrib-body">
+      <p class="contrib-intro">
+        Projet mené à deux chez Attijari Bank : j'ai pris en charge le <strong>volet Data Science et Intelligence Artificielle</strong>, mon collègue le développement applicatif et la sécurité. Ce qui suit décrit ma part.
+      </p>
+
+      <div class="contrib-item">
+        <div class="contrib-h">Fine-tuning d'un modèle d'embedding pour le dialecte tunisien</div>
+        <p class="contrib-p">
+          Le problème identifié au départ : les modèles d'embedding multilingues ne reconnaissent pas le derja.
+        </p>
+        <div class="contrib-case">
+          La requête <span class="q">n7eb nebnii dar</span> (« je veux construire une maison ») était plus proche d'une offre d'assurance que d'un crédit immobilier — similarité cosinus de <strong>0,13</strong> avec la bonne réponse contre <strong>0,38</strong> avec la mauvaise.
+        </div>
+        <p class="contrib-p">
+          <strong>Corpus.</strong> Constitution d'un corpus parallèle de <strong>847 requêtes bancaires</strong> sur 8 catégories métier — 349 en derja, 331 en français, 167 en code-switching — construit manuellement, faute de ressource existante pour ce dialecte.
+        </p>
+        <p class="contrib-p">
+          <strong>Entraînement.</strong> Apprentissage contrastif sur <em>paraphrase-multilingual-MiniLM-L12-v2</em> avec <em>MultipleNegativesRankingLoss</em>, 8 000 paires générées en priorisant les appariements inter-langues, split stratifié 70/15/15, 4 époques (lr 2e-5, batch 32, seed fixé).
+        </p>
+        <p class="contrib-p">
+          <strong>Choix du modèle de base</strong> justifié par la contrainte de production : MiniLM (118 M paramètres, 384 dimensions) retenu face à mpnet, LaBSE et XLM-RoBERTa pour permettre une inférence CPU sans GPU.
+        </p>
+        <table class="ft-table">
+          <thead>
+            <tr><th>Résultats sur le jeu de test, jamais vu à l'entraînement</th><th>Avant</th><th>Après</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Précision de classification (k-NN)</td><td class="before">77,3 %</td><td class="after">96,9 %</td></tr>
+            <tr><td>Similarité inter-langues derja ↔ français</td><td class="before">0,32</td><td class="after">0,96</td></tr>
+            <tr><td>Score de silhouette</td><td class="before">0,04</td><td class="after">0,91</td></tr>
+          </tbody>
+        </table>
+        <p class="contrib-p" style="margin-top:14px;">
+          Sur la requête initialement défaillante, l'écart entre bonne et mauvaise catégorie passe de <strong>−0,25 à +0,60</strong>.
+        </p>
+      </div>
+
+      <div class="contrib-item">
+        <div class="contrib-h">Pipeline RAG multi-sources</div>
+        <p class="contrib-p">
+          Conception et implémentation de la chaîne de récupération : <strong>détection automatique du derja</strong> par marqueurs lexicaux et plage Unicode arabe, réécriture de la requête vers le français pour la recherche sémantique, et <strong>recherche hybride</strong> combinant similarité dense et filtrage par catégorie de produit.
+        </p>
+        <p class="contrib-p">
+          Indexation dans ChromaDB d'un corpus d'environ 100 fiches produits et de documents PDF. Génération via LLaMA-3.3-70B (Groq) et Gemini Flash, avec <strong>repli automatique</strong> d'un modèle sur l'autre.
+        </p>
+      </div>
+
+      <div class="contrib-item">
+        <div class="contrib-h">Évaluation de la qualité — double dispositif</div>
+        <p class="contrib-p">
+          <strong>Auto-score synchrone</strong> (moins de 50 ms) combinant quatre métriques pondérées : ancrage dans les sources, citations, couverture et cohérence de longueur. <strong>LLM-as-Judge asynchrone</strong> notant véracité, pertinence, clarté et conformité, avec règle de détection d'hallucination.
+        </p>
+        <p class="contrib-p">
+          Mesure de la récupération sur un <strong>jeu de référence annoté par pooling</strong> sur le top-10 : Recall@5 de <strong>47,6 %</strong>, Recall@10 de <strong>69,6 %</strong>, MRR de <strong>0,449</strong> sur 46 questions exploitables. Ces chiffres situent honnêtement la marge de progression du système.
+        </p>
+      </div>
+
+      <div class="contrib-item">
+        <div class="contrib-h">Préparation des données</div>
+        <p class="contrib-p">
+          Collecte par scraping d'environ 100 fiches produits sur 8 catégories, nettoyage et structuration du corpus, puis génération de <strong>30 profils clients synthétiques</strong> avec règles métier cohérentes — <strong>aucune donnée client réelle n'a été utilisée</strong>.
+        </p>
+      </div>
+
+      <p class="contrib-foot">
+        Prototype académique, non déployé en production. Modèle entraîné sur Kaggle (GPU Tesla T4).
+        <br>Stack de ma part : Python · Sentence-Transformers · PyTorch · LangChain · ChromaDB · scikit-learn · Groq (LLaMA-3.3-70B) · Google Gemini · FastAPI · MongoDB
+      </p>
+    </div>
+  </div>
+
+  <!-- TODO(sofien) : si le dataset Kaggle sofienkrir/attijari-data-v2 est public,
+       ajouter le lien ici : c'est la seule preuve verifiable et horodatee de ta
+       contribution personnelle au volet Data Science.
+       TODO(sofien) : ajouter un schema d'architecture si Attijari Bank le valide. -->
 
   <div class="pfe-stack reveal">
     <div class="pfe-stack-row">
@@ -1122,7 +1228,7 @@ a:focus-visible, button:focus-visible, .form-input:focus-visible { outline: 2px 
     </div>
     <div class="pfe-stack-row">
       <div class="pfe-stack-label">Données</div>
-      <div class="pfe-stack-items"><span class="proj-tag">8 000 paires annotées FR / derja</span></div>
+      <div class="pfe-stack-items"><span class="proj-tag">847 requêtes annotées FR / derja</span></div>
     </div>
     <div class="pfe-stack-row">
       <div class="pfe-stack-label">Backend</div>
